@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class StageTime : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float time;
+    TimerUI timerUI;
+
+    private void Awake()
     {
-        
+        timerUI = FindObjectOfType<TimerUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        time += Time.deltaTime;
+        timerUI.UpdateTime(time);
     }
 }
